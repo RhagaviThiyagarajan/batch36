@@ -9,13 +9,14 @@ import { AddColor } from "./AddColor";
 import Counter  from './Counter';
 import MovieList from './MovieList';
 import Movie from './Movie';
+import { useState } from 'react';
 
 
 
 
 export default function  App()
 {
-  const movieList=[
+  const INITIAL_MOVIE=[
 
     
   {
@@ -58,34 +59,35 @@ export default function  App()
       "https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg"
   },
   {
-    name: "Interstellar",
-    poster: "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
-    rating: 8.6,
-    summary:
+    "name": "Interstellar",
+    "poster": "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
+    "rating": 8.6,
+    "summary":
       "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\n of researchers, to find a new planet for humans."
   },
   {
-    name: "Baahubali",
-    poster: "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
-    rating: 8,
-    summary:
+    "name": "Baahubali",
+    "poster": "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
+    "rating": 8,
+    "summary":
       "In the kingdom of Mahishmati, Shivudu falls in love with a young warrior woman. While trying to woo her, he learns about the conflict-ridden past of his family and his true legacy."
   },
   {
-     name: "Ratatouille",
-     poster:
+     "name": "Ratatouille",
+     "poster":
        "https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
-     rating: 8,
-     summary:
+     "rating": 8,
+     "summary":
        "Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him."
    }
 ];
 
+const [movieList,setMovieList]=useState(INITIAL_MOVIE);
   
-  return( 
+  return(  
       <div>
         <AddColor/>
-        <MovieList movieList={movieList}/>
+        <MovieList movieList={movieList} setMovieList={setMovieList}/>
 
 </div>
   );

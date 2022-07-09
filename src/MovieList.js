@@ -1,10 +1,11 @@
 import React from 'react';
 import Movie from './Movie';
+import { useState } from 'react';
 
 
 
 
-export default function MovieList({movieList}) {
+export default function MovieList({movieList,setMovieList}) {
   const[name,setName]=useState();
   const[rating,setRating]=useState();
   const[summary,setSummary]=useState();
@@ -22,13 +23,25 @@ export default function MovieList({movieList}) {
       <input placeholder="Poster" onChange={(event)=>setPoster(event.target.value)}>
 
   </input>
+
+  
 <p>  name:{name}</p>
- <p>poster: {poster}</p>
+<p>  poster: {poster}</p>
 <p>  rating:{rating}</p>
- <p> summary:{summary}</p>
-  <button onClick={()=>{
-    
-  }}>ADD-MOVIE</button>
+<p>  summary:{summary}</p>
+  
+  <button onClick={()=>
+  {
+    const newMovie={
+      name:name,
+      poster:poster,
+      rating:rating,
+      summary:summary,
+
+    };
+    setMovieList([...movieList,newMovie]);
+  }
+}>ADD-MOVIE</button>
     <div className='movie-list'>
       {movieList.map((mv, index) => {
         return (<Movie key={index} movie={mv} />);
