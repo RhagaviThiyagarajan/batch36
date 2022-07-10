@@ -2,13 +2,13 @@
 import React from 'react';
 import Counter from './Counter';
 import { useState } from 'react';
+import { useNavigate,navigate } from 'react-router';
 
 
 
 
 
-
-export default function Movie( {movie}) {
+export default function Movie( {movie,id}) {
   
 
   ///conditional styling
@@ -24,6 +24,9 @@ export default function Movie( {movie}) {
 //   display:show ? "block" : "none",
 //  };
 
+const navigate=useNavigate();
+
+
   return (
   <div className='movie-container'>
     <img 
@@ -35,14 +38,18 @@ export default function Movie( {movie}) {
     <h2 className='movie-name'>{movie.name}</h2>
     <p  style={styles} className='movie-rating'>{movie.rating}⭐</p>
   </div>
+
+  <div className='button'>
   <button onClick={()=>setShow(!show)}>TOGGLE-SUMMARY</button>
-{
+  <button onClick={()=>navigate(`/movies/${id}`)}>INFO</button> {
   ///conditional rendering
+
 
   show? <p className='movie-summary'>{movie.summary}</p>  : null
 
 };
- 
+</div>
+
 
 {/* <MovieList/> */}
   <Counter/>

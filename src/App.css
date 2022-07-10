@@ -155,3 +155,15 @@ section.pricing {
   max-height:700px;
   object-fit:contain;
 }
+.button{
+gap:40px;
+
+
+}
+
+
+.movie-detail-container
+{
+  max-width: 700px;
+}
+

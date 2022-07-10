@@ -1,6 +1,8 @@
 import React from 'react';
 import Movie from './Movie';
 import { useState } from 'react';
+import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 
 
@@ -33,23 +35,37 @@ export default function MovieList({movieList,setMovieList}) {
 <div>
   <div className='Add-movie-form'>
 
-  <input placeholder="Name"  onChange={(event)=>setName(event.target.value)}/>
-  <input placeholder="Rating" onChange={(event)=>setRating(event.target.value)} />
-    <input placeholder="Summary" onChange={(event)=>setSummary(event.target.value)}/>
+  {/* <input placeholder="Name"  onChange={(event)=>setName(event.target.value)}/> */}
+  {/* <input placeholder="Rating" onChange={(event)=>setRating(event.target.value)} /> */}
+    {/* //<input placeholder="Summary" onChange={(event)=>setSummary(event.target.value)}/> */}
+{/* 
+      <input placeholder="Poster" onChange={(event)=>setPoster(event.target.value)}> */}
 
-      <input placeholder="Poster" onChange={(event)=>setPoster(event.target.value)}>
+  {/* </input> */}
 
-  </input>
+  <TextField  label="Name"
+   variant="filled"
+   onChange={(event)=>setName(event.target.value)}/> 
+
+   <TextField  label="Rating"
+   variant="filled"
+   onChange={(event)=>setRating(event.target.value)}/> 
+
+   <TextField  label="Poster"
+   variant="filled"
+   onChange={(event)=>setPoster(event.target.value)}/> 
 
   
+  <TextField  label="summary"
+   variant="filled"
+   onChange={(event)=>setSummary(event.target.value)}/> 
 
-  
-  <button onClick={AddMovie}>ADD-MOVIE</button>
+  <Button onClick={AddMovie} variant="contained">ADD-MOVIE</Button>
 
   </div>
     <div className='movie-list'>
       {movieList.map((mv, index) => {
-        return (<Movie key={index} movie={mv} />);
+         return (<Movie key={index} movie={mv} id={index}/>);
       }
       )}
 
