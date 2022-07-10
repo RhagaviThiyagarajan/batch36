@@ -6,10 +6,27 @@ import { useState } from 'react';
 
 
 export default function MovieList({movieList,setMovieList}) {
-  const[name,setName]=useState();
-  const[rating,setRating]=useState();
-  const[summary,setSummary]=useState();
-  const[poster,setPoster]=useState();
+  const[name,setName]=useState("");
+  const[rating,setRating]=useState("");
+  const[summary,setSummary]=useState("");
+  const[poster,setPoster]=useState("");
+
+  const AddMovie=()=>
+  {
+    const newMovie={
+      name:name,
+      poster:poster,
+      rating:rating,
+      summary:summary,
+
+    };
+
+    //copy the movie list and add new movie to it.
+
+    setMovieList([...movieList,newMovie]);
+    console.log(newMovie);
+  };
+  
 
   return (
 
@@ -25,30 +42,18 @@ export default function MovieList({movieList,setMovieList}) {
   </input>
 
   
-<p>  name:{name}</p>
-<p>  poster: {poster}</p>
-<p>  rating:{rating}</p>
-<p>  summary:{summary}</p>
-  
-  <button onClick={()=>
-  {
-    const newMovie={
-      name:name,
-      poster:poster,
-      rating:rating,
-      summary:summary,
 
-    };
-    setMovieList([...movieList,newMovie]);
-  }
-}>ADD-MOVIE</button>
+  
+  <button onClick={AddMovie}>ADD-MOVIE</button>
+
+  </div>
     <div className='movie-list'>
       {movieList.map((mv, index) => {
         return (<Movie key={index} movie={mv} />);
       }
       )}
 
-</div>
+
 </div>
     </div>
   );

@@ -10,11 +10,16 @@ import Counter  from './Counter';
 import MovieList from './MovieList';
 import Movie from './Movie';
 import { useState } from 'react';
+import {
+  Routes,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
-
-export default function  App()
+ function  App()
 {
   const INITIAL_MOVIE=[
 
@@ -82,15 +87,41 @@ export default function  App()
    }
 ];
 
+
 const [movieList,setMovieList]=useState(INITIAL_MOVIE);
   
   return(  
       <div>
-        <AddColor/>
-        <MovieList movieList={movieList} setMovieList={setMovieList}/>
+        {/* <AddColor/> */}
+        {/* <MovieList movieList={movieList} setMovieList={setMovieList}/> */}
 
+<nav>
+  <ul>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+  
+  
+  <li>
+<Link to="/color-game">ADD-COLOR</Link>
+  </li>
+  <li>
+    <Link to="/movies">MOVIES</Link>
+  </li>
+  </ul>
+  </nav>
+
+<Routes>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/color-game" element={<AddColor/>}/>
+  <Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList}/>}/>
+<Route path="*" element={<NotFound/>}/>
+</Routes>
+
+      
 </div>
   );
+  
 
 // {/* <div className='movie-list'>
 // {
@@ -100,12 +131,28 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
 // )} */}
 
 
-
-    
-      
-      
-    
-  }
-
+ }
 
  
+
+    export function Home()
+  {
+    return(
+    <div>
+      <h1>HOME💖</h1>
+    </div>
+  )} 
+export function NotFound()
+{
+  return(
+    <div>
+      <p className='notfound'>ERROR
+      <img src="https://freefrontend.com/assets/img/html-funny-404-pages/SVG-Animation-404-Page.png">
+
+      </img>
+      </p>
+    </div>
+  )
+}
+
+  export default App;

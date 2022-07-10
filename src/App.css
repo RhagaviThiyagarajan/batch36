@@ -148,3 +148,10 @@ section.pricing {
   gap:10px;
   padding:25px;
 }
+
+.notfound
+{
+  width:100%;
+  max-height:700px;
+  object-fit:contain;
+}
