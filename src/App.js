@@ -1,16 +1,19 @@
  import React from 'react';
-
-
-
-
-
-import "./App.css";
+ import AppBar from '@mui/material/AppBar';
+ import Box from '@mui/material/Box';
+ import Toolbar from '@mui/material/Toolbar';
+ import Typography from '@mui/material/Typography';
+ import Button from '@mui/material/Button';
+ import IconButton from '@mui/material/IconButton';
+ import MenuIcon from '@mui/icons-material/Menu';
+ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import { AddColor } from "./AddColor";
 import Counter  from './Counter';
 import MovieList from './MovieList';
 import Movie from './Movie';
 import { useState } from 'react';
+import {AddMovie} from "./AddMovie";
 import {
   Routes,
   Switch,
@@ -18,9 +21,13 @@ import {
   Link,
   Navigate,
   useNavigate,
-  useParams,
-} from "react-router-dom";
-
+}
+ from "react-router-dom";
+import { NotFound } from './NotFound';
+import { MovieDetails } from './MovieDetails';
+import { Home } from './Home';
+ 
+                                                        
 
 
  function  App()
@@ -98,7 +105,7 @@ import {
     "trailer":"https://www.youtube.com/embed/NgsQ8mVkN8w",
   }
 ];
-
+const navigate=useNavigate();
 
 const [movieList,setMovieList]=useState(INITIAL_MOVIE);
   
@@ -106,8 +113,25 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
       <div>
         {/* <AddColor/> */}
         {/* <MovieList movieList={movieList} setMovieList={setMovieList}/> */}
+        <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" 
+          onClick={()=>navigate("/")}>Home</Button>
+        
+        <Button color="inherit"
+         onClick={()=>navigate("/color-game")}>COLOR-GAME</Button>
+        
+        
+        <Button color="inherit"
+        onClick={()=>navigate("/movies")}>MOVIES</Button>
 
-<nav>
+        <Button color="inherit"
+        onClick={()=>navigate("/movies/add")}>ADD-MOVIE</Button>
+        </Toolbar>
+        </AppBar>
+
+
+{/* <nav>
   <ul>
     <li>
       <Link to="/">Home</Link>
@@ -121,19 +145,20 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
     <Link to="/movies">MOVIES</Link>
   </li>
   </ul>
-  </nav>
-
+  </nav> */}
+<section className="route-container">
 <Routes>
-  <Route path="/" element={<Home/>}/>
-  <Route path="/color-game" element={<AddColor/>}/>
-  <Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList}/>}/>
+<Route path="/" element={<Home/>}/>
+<Route path="/color-game" element={<AddColor/>}/>
+<Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList}/>}/>
 <Route path="/films" element={<Navigate replace to="/movies"/>}></Route>
 <Route path="/404" element={<NotFound/>}/>
 <Route path="*" element={<Navigate replace to="/404"/>}/>
 <Route path="/movies/:id" element={<MovieDetails movieList={movieList}/>}/>
+<Route path="/movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
 
 </Routes>
-
+</section>
       
 </div>
   );
@@ -151,58 +176,4 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
 
  
 
-    export function Home()
-  {
-    return(
-    <div>
-      <h1>HOME💖</h1>
-    </div>
-  )} 
-export function NotFound()
-{
-  return(
-    <div>
-      <p className='notfound'>ERROR
-      <img src="https://freefrontend.com/assets/img/html-funny-404-pages/SVG-Animation-404-Page.png">
-
-      </img>
-      </p>
-    </div>
-  )
-}
-export function MovieDetails({movieList})
-{
-  const{id}=useParams();
-  console.log(id);
-  //console.log(movieList[id]);
-  const movie=movieList[id]
- 
-  const styles=
-  {
-   color:movie.rating >=8.5 ? "green" : " red",
-  };
-  const navigate=useNavigate();
-
-  return(
-    <div>
-      <iframe width="100%" height="700"
-       src={movie.trailer}
-       title="Baahubali Trailer Tamil || Prabhas, Rana Daggubati, Anushka, Tamannaah || Bahubali Trailer"
-        frameborder="0"
-         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-         allowfullscreen>
-        </iframe>
-
-    <div className="movie-detail-container"> 
-     <div className='movie-specs'>
-    <h2 className='movie-name'>{movie.name}</h2>
-    <p  style={styles} className='movie-rating'>{movie.rating}⭐</p>
- 
-    </div>
-    <p className='movie-summary'>{movie.summary}</p>
-    <button onClick={()=>navigate(-1)}>BACK</button>
-    </div>
-    </div>
-  )
-}
   export default App;

@@ -105,3 +105,11 @@ section.pricing {
   gap:100px;
   width:300px;
 }
+
+
+.card-title
+{
+  text-align: center;
+  font-size:30px;
+  
+}
