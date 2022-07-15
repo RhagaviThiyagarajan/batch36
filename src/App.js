@@ -12,8 +12,13 @@ import { AddColor } from "./AddColor";
 import Counter  from './Counter';
 import MovieList from './MovieList';
 import Movie from './Movie';
+import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import {AddMovie} from "./AddMovie";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import {
   Routes,
   Switch,
@@ -108,8 +113,19 @@ import { Home } from './Home';
 const navigate=useNavigate();
 
 const [movieList,setMovieList]=useState(INITIAL_MOVIE);
-  
-  return(  
+const[mode,setMode]=useState("dark");
+const theme = createTheme({
+  palette: {
+    mode: mode,
+  },
+});
+  return( 
+
+    <ThemeProvider theme={theme}>
+      <Paper elevation={10} 
+      style={{minHeight:'100vh' ,borderRadius:'0px'}} >
+
+
       <div>
         {/* <AddColor/> */}
         {/* <MovieList movieList={movieList} setMovieList={setMovieList}/> */}
@@ -127,6 +143,16 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
 
         <Button color="inherit"
         onClick={()=>navigate("/movies/add")}>ADD-MOVIE</Button>
+
+        <Button color="inherit"
+         startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        
+         onClick={()=>setMode(mode==="light" ? "dark" : "light")}>
+          {
+            mode ==="light" ? "dark" : " light"
+          }
+          mode
+         </Button>
         </Toolbar>
         </AppBar>
 
@@ -161,6 +187,9 @@ const [movieList,setMovieList]=useState(INITIAL_MOVIE);
 </section>
       
 </div>
+</Paper>
+</ThemeProvider> 
+
   );
   
 
