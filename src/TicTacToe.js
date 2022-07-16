@@ -16,32 +16,49 @@ export function TicTacToe()
 }
 export function Board()
 {
+    const [board,setboard]=useState([
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+
+    ])
+    const [isxturn,setxturn]=useState(true);
+    const handleClick=(index)=>
+    {
+console.log(index);
+    }
+
     return(
         <div className="board">
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
-            <GameBox/>
+            {
+            board.map((value,index)=>
+            (
+                <GameBox value={index} onPlayerClick={()=>handleClick(index)}/>
+            ))
+            }
+            
 
-            </div>
+     0       </div>
     )
 }
 
-export function GameBox()
+export function GameBox({value,setValue,onPlayerClick})
 {
-    const[value,setValue]=useState('')
+    // const[value,setValue]=useState('');
    
     const styles=
     {
-        color:value==="X" ? " green" : "red",
+        color:value==="x" ? "green" : "red",
     };
     return(
-        <div style={styles} onClick={()=>setValue(value==="X"? "O" : "X")} 
+        <div style={styles} onClick=
+           {onPlayerClick}
         className="game-box">
 {value}
         </div>
