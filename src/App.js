@@ -31,8 +31,10 @@ import {
 import { NotFound } from './NotFound';
 import { MovieDetails } from './MovieDetails';
 import { Home } from './Home';
+import { TicTacToe } from './TicTacToe';
  
-                                                        
+ 
+
 
 
  function  App()
@@ -153,6 +155,10 @@ const theme = createTheme({
           }
           mode
          </Button>
+
+         <Button color="inherit"
+        onClick={()=>navigate("/tictactoe")}>TIC-TAC-TOE
+        </Button>
         </Toolbar>
         </AppBar>
 
@@ -163,7 +169,7 @@ const theme = createTheme({
       <Link to="/">Home</Link>
     </li>
   
-  
+   
   <li>
 <Link to="/color-game">ADD-COLOR</Link>
   </li>
@@ -182,7 +188,7 @@ const theme = createTheme({
 <Route path="*" element={<Navigate replace to="/404"/>}/>
 <Route path="/movies/:id" element={<MovieDetails movieList={movieList}/>}/>
 <Route path="/movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
-
+<Route path="/tictactoe" element={<TicTacToe/>}/>
 </Routes>
 </section>
       
@@ -203,6 +209,7 @@ const theme = createTheme({
 
  }
 
- 
-
   export default App;
+
+
+   

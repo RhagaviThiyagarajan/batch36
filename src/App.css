@@ -171,3 +171,31 @@ gap:40px;
 {
   padding:16px;
 }
+
+.game-box
+
+{
+  height:160px;
+  /* width:160px; */
+  /* background: white; */
+  color:black;
+  font-size:100px;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  border:1px solid black;
+  cursor:pointer;
+}
+.game-box :hover
+{
+background : grey;
+}
+.board
+{
+  /* background:white; */
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  max-width:800px;
+  
+
+}
