@@ -16,7 +16,7 @@ export function TicTacToe()
 }
 export function Board()
 {
-    const [board,setboard]=useState([
+    const [board,setBoard]=useState([
         null,
         null,
         null,
@@ -32,19 +32,23 @@ export function Board()
     const handleClick=(index)=>
     {
 console.log(index);
-    }
+const boardCopy=[...board];
+boardCopy[index]=isxturn ?"x" : "0";
+setBoard(boardCopy);
+setxturn(!isxturn); 
+    };
 
     return(
         <div className="board">
             {
             board.map((value,index)=>
             (
-                <GameBox value={index} onPlayerClick={()=>handleClick(index)}/>
+                <GameBox value={value} onPlayerClick={()=>handleClick(index)}/>
             ))
             }
             
 
-     0       </div>
+           </div>
     )
 }
 
