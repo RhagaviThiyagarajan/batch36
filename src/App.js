@@ -159,7 +159,7 @@ const theme = createTheme({
          <Button color="inherit"
         onClick={()=>navigate("/tictactoe")}>TIC-TAC-TOE
         </Button>
-        </Toolbar>
+        </Toolbar> 
         </AppBar>
 
 
