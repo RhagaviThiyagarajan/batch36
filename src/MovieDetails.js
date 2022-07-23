@@ -44,6 +44,7 @@ export function MovieDetails({ movieList }) {
   BACK
 </Button>
 
+
       </div>
     </div>
   );

@@ -43,6 +43,7 @@ import { TicTacToe } from './TicTacToe';
 
     
   {
+    id:"1",
     "name": "RRR",
     "poster":
       "https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/6/Desk/2021_6$largeimg_977224513.JPG",
@@ -52,6 +53,7 @@ import { TicTacToe } from './TicTacToe';
   "trailer": "https://www.youtube.com/embed/NgBoMJy386M",
 },
   {
+    id:"2",
      "name": "Iron man 2",
    "poster":"https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg",
     "rating": 7,
@@ -60,6 +62,7 @@ import { TicTacToe } from './TicTacToe';
      "trailer": "https://www.youtube.com/embed/BoohRoVA9WQ",
  },
   {
+    id:"3",
      "name": "No Country for Old Men",
      "poster":
        "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
@@ -69,6 +72,7 @@ import { TicTacToe } from './TicTacToe';
      "trailer":"https://www.youtube.com/embed/38A__WT3-o0}",
   },
   {
+    id:"4",
      "name": "Jai Bhim",
      "poster":
        "https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg",
@@ -78,6 +82,7 @@ import { TicTacToe } from './TicTacToe';
     "trailer":"https://www.youtube.com/embed/pVOd8HAQQZM",
    },
   {
+    id:"5",
     "name": "The Avengers",
     "rating": 8,
    "summary":
@@ -87,6 +92,7 @@ import { TicTacToe } from './TicTacToe';
   "trailer" :"https://www.youtube.com/embed/eOrNdBpGMv8}",
   },
   {
+    id:"6",
     "name": "Interstellar",
     "poster": "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
     "rating": 8.6,
@@ -95,6 +101,7 @@ import { TicTacToe } from './TicTacToe';
       "trailer":"https://www.youtube.com/embed/zSWdZVtXT7E",
   },
   {
+    id:"7",
     "name": "Baahubali",
     "poster": "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
     "rating": 8,
@@ -103,6 +110,7 @@ import { TicTacToe } from './TicTacToe';
 "trailer":"https://www.youtube.com/embed/64KCdvkgk2M}",
   },
   {
+    id:"8",
      "name": "Ratatouille",
      "poster":
        "https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
@@ -182,7 +190,7 @@ const theme = createTheme({
 <Routes>
 <Route path="/" element={<Home/>}/>
 <Route path="/color-game" element={<AddColor/>}/>
-<Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList}/>}/>
+<Route path="/movies" element={<MovieList/>}/>
 <Route path="/films" element={<Navigate replace to="/movies"/>}></Route>
 <Route path="/404" element={<NotFound/>}/>
 <Route path="*" element={<Navigate replace to="/404"/>}/>

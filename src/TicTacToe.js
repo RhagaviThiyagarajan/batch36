@@ -1,7 +1,10 @@
-import React from "react";
+ import React from "react";
 import App from "./App";
 import "./App.css";
 import { useState } from "react";
+import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
+import Button from '@mui/material/Button';
 
 
 
@@ -17,7 +20,7 @@ export function TicTacToe()
 }
 export function Board()
 {
-    const [board,setBoard]=useState([
+    const INITIAL_BOARD=[
         null,
         null,
         null,
@@ -27,8 +30,8 @@ export function Board()
         null,
         null,
         null,
-
-    ])
+]
+    const [board,setBoard]=useState(INITIAL_BOARD);
     const [isxturn,setxturn]=useState(true);
     const decideWinner=(board)=>
     {
@@ -73,23 +76,38 @@ setxturn(!isxturn);
     };
     };
 
-    const restart=()=>
+    const Restart=()=>
     {
-        {``
-            
-        }
-    }
+       
+        
+            setBoard(INITIAL_BOARD);
+            setxturn(true);
+             
+        
+    };
+    const { width, height } = useWindowSize();
     return(
+        <div>
+           {winner? <Confetti
+      width={width}
+      height={height}
+      gravity={0.02}
+     thunder={1}
+    />:null}
+      
         <div className="board">
             {
+               
             board.map((value,index)=>
             (
                 <GameBox value={value} onPlayerClick={()=>handleClick(index)}/>
             ))
             }
            {winner?<h2> winner is : {winner}</h2>:null}
-           <button onClick={Restart}>Restart</button>
+           {winner?<Button  variant="contained" color="success" onClick={Restart}>Restart</Button>:null}
            </div>
+           </div>
+           
     )
 }
 
@@ -109,6 +127,7 @@ export function GameBox({value,setValue,onPlayerClick})
         </div>
     )
 }
+
 // export default () => {
 //     const { width, height } = useWindowSize()
 //     return (

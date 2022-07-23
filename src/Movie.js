@@ -16,7 +16,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-export default function Movie( {movie,id}) {
+export default function Movie( {movie,id,deletebutton}) {
   
 
   ///conditional styling
@@ -95,7 +95,7 @@ color="primary" aria-label="movie details">
 </CardContent>
 {/* <MovieList/> */}
 <CardActions>
-  <Counter/>
+  <Counter/> {deletebutton}
   </CardActions>
   
   </Card>

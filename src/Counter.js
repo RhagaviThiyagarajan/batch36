@@ -7,6 +7,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import MailIcon from '@mui/icons-material/Mail';
+import { useEffect } from 'react';
 
 
 
@@ -16,6 +17,10 @@ const navigate=useNavigate();
   const [dislike, setDisLike] = useState(0);
   const incrementLike=()=>setLike(like + 1);
   const decrementLike=()=>setDisLike(dislike - 1);
+useEffect(()=>
+{
+  console.log("Like updated",like);
+},[like,dislike]);
 
   return (
     <div className="counter">
