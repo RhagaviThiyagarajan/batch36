@@ -2,8 +2,7 @@ import React from "react";
 import App from "./App";
 import "./App.css";
 import { useState } from "react";
-import useWindowSize from 'react-use/lib/useWindowSize';
-import Confetti from 'react-confetti';
+
 
 
 export function TicTacToe()
@@ -72,6 +71,13 @@ boardCopy[index]=isxturn ?"x" : "0";
 setBoard(boardCopy);
 setxturn(!isxturn); 
     };
+    };
+
+    const restart=()=>
+    {
+        {``
+            
+        }
     }
     return(
         <div className="board">
@@ -81,8 +87,8 @@ setxturn(!isxturn);
                 <GameBox value={value} onPlayerClick={()=>handleClick(index)}/>
             ))
             }
-           <h2> winner is : {winner}</h2>
-
+           {winner?<h2> winner is : {winner}</h2>:null}
+           <button onClick={Restart}>Restart</button>
            </div>
     )
 }
@@ -103,12 +109,15 @@ export function GameBox({value,setValue,onPlayerClick})
         </div>
     )
 }
-export default () => {
-    const { width, height } = useWindowSize()
-    return (
-      <Confetti
-        width={width}
-        height={height}
-      />
-    )
-  }
+// export default () => {
+//     const { width, height } = useWindowSize()
+//     return (
+//       <Confetti
+//         width={width}
+//         height={height}
+//       />
+//     )
+//   }
+
+
+
