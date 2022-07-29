@@ -36,7 +36,7 @@ const deleteMovie=(id)=>
           (<Movie 
             key={index}
             movie={mv}
-            id={index}
+            id={mv.id}
           //   deleteButton={<button onClick={()=>
           //   {
           //     fetch("https://62a970bfec36bf40bdb78bdc.mockapi.io/movies")

@@ -194,7 +194,7 @@ const theme = createTheme({
 <Route path="/films" element={<Navigate replace to="/movies"/>}></Route>
 <Route path="/404" element={<NotFound/>}/>
 <Route path="*" element={<Navigate replace to="/404"/>}/>
-<Route path="/movies/:id" element={<MovieDetails movieList={movieList}/>}/>
+<Route path="/movies/:id" element={<MovieDetails/>}/>
 <Route path="/movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
 <Route path="/tictactoe" element={<TicTacToe/>}/>
 </Routes>
