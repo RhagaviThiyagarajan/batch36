@@ -15,10 +15,12 @@ export function MovieDetails() {
   console.log(id);
   //console.log(movieList[id]);
 
-  const [movie,setMovie]=useState([{}]);
+  const [movie,setMovie]=useState({});
  const getMovie=()=>
  {
-   fetch(`https://62a970bfec36bf40bdb78bdc.mockapi.io/movies/${id}`)
+   fetch(`https://62a970bfec36bf40bdb78bdc.mockapi.io/movies/${id}`,{
+   method:"GET",
+  })
    .then((data)=>data.json())
    .then((mv)=>setMovie(mv));
    };
@@ -34,13 +36,13 @@ useEffect(()=>getMovie(),[]);
 
   return (
     <div>
-      <iframe width="100%" height="700"
-        src={movie.trailer}
-        title="Baahubali Trailer Tamil || Prabhas, Rana Daggubati, Anushka, Tamannaah || Bahubali Trailer"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+       <iframe width="100%" height="700"
+        src={movie.trailer}>
+        {/* // title="Baahubali Trailer Tamil || Prabhas, Rana Daggubati, Anushka, Tamannaah || Bahubali Trailer"
+        // frameborder="0"
+        // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        // allowfullscreen> */}
+      </iframe> 
 
       <div className="movie-detail-container">
         <div className='movie-specs'>
