@@ -3,7 +3,7 @@ import Movie from './Movie';
 import App from './App';
 import { AddMovie } from './AddMovie';
 
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useNavigate} from 'react';
 
 
 export default function MovieList() {
@@ -27,6 +27,8 @@ const deleteMovie=(id)=>
  }
   
 
+ const navigate=useNavigate();
+
   return(
   <div>
     <AddMovie/>
@@ -47,8 +49,17 @@ const deleteMovie=(id)=>
             deletebutton=
             {<button onClick={()=>deleteMovie(mv.id)}
            >DeleteMe😒</button>}
-            />
+
+           editbutton=
+           {
+             <button onClick={()=>navigate(`/movies/edit/${mv.id}`)}
+          >edit me😊</button>
+           }
+            /> 
+           
+          
           ))}
+          
             
             
          
@@ -59,3 +70,6 @@ const deleteMovie=(id)=>
      </div>
   );
           }
+
+
+         

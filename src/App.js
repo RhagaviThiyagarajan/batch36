@@ -18,6 +18,7 @@ import { AddMovie } from "./AddMovie";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import{EditMovie } from "./EditMovie";
 
 import {
   Routes,
@@ -31,6 +32,7 @@ import { NotFound } from "./NotFound";
 import { MovieDetails } from "./MovieDetails";
 import { Home } from "./Home";
 import { TicTacToe } from "./TicTacToe";
+// import { EditMovie } from "./EditMovie";
 
 function App() {
   const INITIAL_MOVIE = [
@@ -146,6 +148,7 @@ function App() {
               <Button color="inherit" onClick={() => navigate("/movies/add")}>
                 ADD-MOVIE
               </Button>
+             
 
               <Button
                 color="inherit"
@@ -191,9 +194,10 @@ function App() {
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate replace to="/404" />} />
               <Route path="/movies/:id" element={<MovieDetails />} />
-              {/* //<Route path="/movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/> */}
+              <Route path="/movies/edit/:id" element={<EditMovie/>}/>
               <Route path="/movies/add" element={<AddMovie />} />
               <Route path="/tictactoe" element={<TicTacToe />} />
+     
             </Routes>
           </section>
         </div>
@@ -210,3 +214,4 @@ function App() {
 }
 
 export default App;
+

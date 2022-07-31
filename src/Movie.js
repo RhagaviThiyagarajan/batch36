@@ -95,7 +95,7 @@ color="primary" aria-label="movie details">
 </CardContent>
 {/* <MovieList/> */}
 <CardActions>
-  <Counter/> {deletebutton}
+  <Counter/> {deletebutton}{editbutton}
   </CardActions>
   
   </Card>
